@@ -32,6 +32,16 @@ use {
 
 ### [dein.vim](https://github.com/Shougo/dein.vim)
 
+**dein.toml**
+```toml
+[[plugins]]
+repo = 'natsukodachi/suizokukan.nvim'
+hook_add = '''
+lua require("suizokukan").setup()
+'''
+```
+
+**Vim script**
 ```vim
 call dein#add('natsukodachi/suizokukan.nvim')
 ```
@@ -96,7 +106,7 @@ require("suizokukan").setup({
 ## 🐟 Customize
 
 ### ハイライトグループ
-
+`:set termguicolors`で色が付きますが、カラースキームと競合する場合があります。
 以下のハイライトグループで色を変更できます。
 
 | グループ名             | 対象           | デフォルト色 |
