@@ -1,14 +1,17 @@
 local M = {}
+local config = require("suizokukan.config")
 
 --- デフォルトのハイライトグループを設定する
 function M.setup_highlights()
+  local cfg = config.get()
+  local bg = cfg.background or "#161821"
   local highlights = {
-    SuizokukanFish     = { fg = "#5f87af", ctermfg = 67,  bg = "NONE", ctermbg = "NONE", default = true },
-    SuizokukanBigFish  = { fg = "#5f5faf", ctermfg = 61,  bg = "NONE", ctermbg = "NONE", default = true },
-    SuizokukanBubble   = { fg = "#87afdf", ctermfg = 110, bg = "NONE", ctermbg = "NONE", default = true },
-    SuizokukanSeafloor = { fg = "#af8754", ctermfg = 137, bg = "NONE", ctermbg = "NONE", default = true },
-    SuizokukanCoral    = { fg = "#d75f87", ctermfg = 168, bg = "NONE", ctermbg = "NONE", default = true },
-    SuizokukanSeaweed  = { fg = "#5faf5f", ctermfg = 71,  bg = "NONE", ctermbg = "NONE", default = true },
+    SuizokukanFish     = { fg = "#5f87af", ctermfg = 67,  bg = bg, ctermbg = "NONE", default = true },
+    SuizokukanBigFish  = { fg = "#5f5faf", ctermfg = 61,  bg = bg, ctermbg = "NONE", default = true },
+    SuizokukanBubble   = { fg = "#87afdf", ctermfg = 110, bg = bg, ctermbg = "NONE", default = true },
+    SuizokukanSeafloor = { fg = "#af8754", ctermfg = 137, bg = bg, ctermbg = "NONE", default = true },
+    SuizokukanCoral    = { fg = "#d75f87", ctermfg = 168, bg = bg, ctermbg = "NONE", default = true },
+    SuizokukanSeaweed  = { fg = "#5faf5f", ctermfg = 71,  bg = bg, ctermbg = "NONE", default = true },
   }
   for name, def in pairs(highlights) do
     vim.api.nvim_set_hl(0, name, def)

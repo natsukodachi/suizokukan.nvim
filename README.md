@@ -82,6 +82,9 @@ require("suizokukan").setup({
     chars = { ".", "o", "O", "°" },
   },
 
+  -- 背景色
+  background = "#161821",
+
   -- 海底
   seafloor = {
     enabled = true,

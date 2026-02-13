@@ -47,6 +47,8 @@ M.defaults = {
     height = 1,           -- 海底の行数
   },
 
+  background = "#161821", -- 背景色
+
   performance = {
     max_windows = 4,      -- アニメーションを有効にする最大ウィンドウ数
   },
