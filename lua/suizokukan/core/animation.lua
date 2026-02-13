@@ -1,6 +1,9 @@
 
 local M = {}
 
+-- NeoVim 0.10+ では vim.uv、0.9 では vim.loop
+local uv = vim.uv or vim.loop
+
 local config_mod   = require("suizokukan.config")
 local render       = require("suizokukan.core.render")
 local fish_mod     = require("suizokukan.core.fish")
@@ -214,7 +217,7 @@ function M.start()
   maintain_fish()
 
   -- 小魚タイマー 
-  state.timers.fish = vim.loop.new_timer()
+  state.timers.fish = uv.new_timer()
   state.timers.fish:start(
     cfg.fish.speed,
     cfg.fish.speed,
@@ -229,7 +232,7 @@ function M.start()
     local interval_ms = (cfg.big_fish.interval_sec or 180) * 1000
 
     -- 出現チェック
-    state.timers.big_fish_spawn = vim.loop.new_timer()
+    state.timers.big_fish_spawn = uv.new_timer()
     state.timers.big_fish_spawn:start(
       interval_ms,
       interval_ms,
@@ -240,7 +243,7 @@ function M.start()
     )
 
     -- 移動タイマー（big_fish.speed 間隔）
-    state.timers.big_fish = vim.loop.new_timer()
+    state.timers.big_fish = uv.new_timer()
     state.timers.big_fish:start(
       cfg.big_fish.speed,
       cfg.big_fish.speed,
@@ -253,7 +256,7 @@ function M.start()
 
   -- 泡移動タイマー
   if cfg.bubbles.enabled then
-    state.timers.bubble = vim.loop.new_timer()
+    state.timers.bubble = uv.new_timer()
     state.timers.bubble:start(
       cfg.bubbles.speed,
       cfg.bubbles.speed,

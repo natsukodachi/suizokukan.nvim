@@ -12,7 +12,7 @@ NeoVim の背景でゆったり魚が泳ぐ、軽量水族館プラグインで�
 
 ```lua
 {
-  "username/suizokukan.nvim",
+  "natsukodachi/suizokukan.nvim",
   config = function()
     require("suizokukan").setup()
   end,
@@ -23,7 +23,7 @@ NeoVim の背景でゆったり魚が泳ぐ、軽量水族館プラグインで�
 
 ```lua
 use {
-  "username/suizokukan.nvim",
+  "natsukodachi/suizokukan.nvim",
   config = function()
     require("suizokukan").setup()
   end,
@@ -33,7 +33,7 @@ use {
 ### [dein.vim](https://github.com/Shougo/dein.vim)
 
 ```vim
-call dein#add('username/suizokukan.nvim')
+call dein#add('natsukodachi/suizokukan.nvim')
 ```
 
 ```lua
